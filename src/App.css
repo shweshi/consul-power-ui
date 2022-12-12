@@ -1,0 +1,60 @@
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
+
+.App {
+  text-align: left;
+  flex-direction: column;
+}
+
+.sidebar {
+  text-align: left !important;
+  border-radius: 0rem;
+  height: 100vh !important;
+}
+
+.rounded {
+  border-radius: 0rem !important;
+}
+
+.rounded-full {
+  border-radius: 50% !important;
+}
+
+tr {
+  cursor: pointer !important;
+  /* whatever other hover styles you want */
+}
+
+.__json-pretty-error__ {
+  padding: 20px !important;
+}
+
+.__json-pretty__ {
+  padding: 20px !important;
+  background: #1f2937 !important
+}
+
+.__json-key__ {
+  color: #ef3b7d !important
+}
+
+.__json-value__ {
+  color: #e6d06c !important
+}
+
+.__json-string__ {
+  color: #e6d06c !important
+}
+
+.__json-boolean__ {
+  color: rgba(102, 153, 204, 1) !important
+}
+
+.dark .dark\:text-blue-500:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
