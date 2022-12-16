@@ -11,6 +11,22 @@ An alternate consul UI build for power users.
 - Dark Mode
 - Advanced feature such as node deregistration, json view etc.
 
+## How to use?
+
+### Using docker image
+```
+docker pull shweshi/consul-power-ui
+docker run -e CONSUL_URL=<CONSUL_BASE_URL> -p 3000:3000 -p 3001:3001 shweshi/consul-power-ui
+```
+
+### Using Docker compose
+```
+docker-compose build --build-arg CONSUL_URL=<CONSUL_BASE_URL>
+docker-compose up
+```
+
+### Running locally
+
 ## Requirements
 - Node.js
 - React.js
@@ -27,22 +43,6 @@ npm install
 cd proxy
 npm install
 ```
-
-## How to use?
-
-### Using docker image
-```
-docker pull shweshi/consul-power-ui
-docker run -e CONSUL_URL=<CONSUL_BASE_URL> -p 3000:3000 -p 3001:3001 shweshi/consul-power-ui
-```
-
-### Using Docker compose
-```
-docker-compose build --build-arg CONSUL_URL=<CONSUL_BASE_URL>
-docker-compose up
-```
-
-### Running locally
 
 In the project directory, run:
 
