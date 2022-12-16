@@ -1,5 +1,7 @@
 import client from "../client";
 
-export default {
+const Services = {
   list: () => client.get("internal/ui/services"),
 };
+
+export default Services;

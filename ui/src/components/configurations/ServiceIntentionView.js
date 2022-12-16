@@ -18,7 +18,7 @@ const ServiceIntentionView = () => {
 
     useEffect(() => {
         fetch()
-    }, []);
+    }, [fetch]);
 
     
     if (serviceIntention === null) {

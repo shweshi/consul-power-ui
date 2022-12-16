@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  consul-power-ui:
+    build:
+      context: "./ui"
+    container_name: consul-power-ui
+    depends_on:
+      - consul-power-ui-proxy
+    ports:
+      - "3000:3000"
+
+  consul-power-ui-proxy:
+    build:
+      context: "./proxy"
+    container_name: consul-power-ui-proxy
+    ports:
+      - "3001:3001"
+

@@ -32,11 +32,11 @@ const NodesList = () => {
         <>
             <div className="text-left flex">
                 <p className="mb-4 text-2xl tracking-tight font-medium text-gray-900 md:text-2xl dark:text-white">Nodes</p>
-                <p className="pl-5 text-sm pt-2 text-gray-200 md:text-sm dark:text-gray-200">{nodes.filter((node) => node.Kind != 'connect-proxy').length + ' total'}</p>
+                <p className="pl-5 text-sm pt-2 text-gray-200 md:text-sm dark:text-gray-200">{nodes.filter((node) => node.Kind !== 'connect-proxy').length + ' total'}</p>
             </div><div className="font-general-regular w-full text-left">
-                <Table hoverable={false} clickable>
+                <Table hoverable={true} clickable>
                     <Table.Body className="divide-y">
-                        {nodes.filter((node) => node.Kind != 'connect-proxy').map((node) => (
+                        {nodes.filter((node) => node.Kind !== 'connect-proxy').map((node) => (
                             <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800" key={node.Node}>
                                 <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white" onClick={() => { routeChange(node.Node); }}>
                                     <div className="text-lg">
@@ -44,7 +44,7 @@ const NodesList = () => {
                                         <span className="pl-2">{node.Node}</span>
                                     </div>
                                     <div className="flex items-left text-sm pt-2 pl-8">
-                                        {node.Services.filter((service) => service.Kind != 'connect-proxy').length > 1 ? <TableRow value={node.Services.filter((service) => service.Kind != 'connect-proxy').length + ' Services'} /> : <TableRow value={node.Services.filter((service) => service.Kind != 'connect-proxy').length + ' Service'} />}
+                                        {node.Services.filter((service) => service.Kind !== 'connect-proxy').length > 1 ? <TableRow value={node.Services.filter((service) => service.Kind !== 'connect-proxy').length + ' Services'} /> : <TableRow value={node.Services.filter((service) => service.Kind !== 'connect-proxy').length + ' Service'} />}
                                         <TableRow value={node.Address} />
                                     </div>
                                 </Table.Cell>

@@ -11,7 +11,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use('/', createProxyMiddleware("/", {
-  target: "http://localhost:8500",
+  target: process.env.CONSUL_URL ? process.env.CONSUL_URL : "http://localhost:8500",
   changeOrigin: true,
 }));
 

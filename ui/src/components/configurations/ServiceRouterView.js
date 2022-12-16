@@ -18,7 +18,7 @@ const ServiceRouterView = () => {
 
     useEffect(() => {
         fetch()
-    }, []);
+    }, [fetch]);
 
     if (serviceRouter === null) {
         return <section className="bg-white dark:bg-gray-900 h-full grid h-screen place-items-center"><Spinner aria-label="Default status example" size="xl" /></section>;

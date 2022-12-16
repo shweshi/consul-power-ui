@@ -16,13 +16,13 @@ const ServicesList = () => {
         <>
             <div className="text-left flex">
                 <p className="mb-4 text-2xl tracking-tight font-medium text-gray-900 md:text-2xl dark:text-white">Services</p>
-                <p className="pl-5 text-sm pt-2 text-gray-200 md:text-sm dark:text-gray-200">{services.filter((service) => service.Kind != 'connect-proxy').length + ' total'}</p>
+                <p className="pl-5 text-sm pt-2 text-gray-200 md:text-sm dark:text-gray-200">{services.filter((service) => service.Kind !== 'connect-proxy').length + ' total'}</p>
             </div>
             <div className="font-general-regular w-full text-left">
-                <Table hoverable={false}>
+                <Table hoverable={true}>
                     <Table.Body className="divide-y">
-                        {services.filter((service) => service.Kind != 'connect-proxy').map((service) => (
-                            <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                        {services.filter((service) => service.Kind !== 'connect-proxy').map((service) => (
+                            <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800" key={service.Name}>
                                 <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                                     <div className="text-lg">
                                         {service.ChecksCritical === 0 ? <HealthyBadge /> : <UnhealthyBadge />}

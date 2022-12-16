@@ -6,6 +6,7 @@ const client = axios.create({
 
 client.interceptors.request.use(function (config) {
     config.params = {
+        dc: `${localStorage.getItem('datacenter')}`,
         ...config.params,
     }
     return config;

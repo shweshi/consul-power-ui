@@ -1,6 +1,8 @@
 import client from "../client";
 
-export default {
+const ServiceRouters = {
   list: () => client.get("config/service-router"),
   getByName: (name) => client.get(`config/service-router/${name}`),
 };
+
+export default ServiceRouters;

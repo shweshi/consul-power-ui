@@ -18,6 +18,7 @@ An alternate consul UI build for power users.
 ## Development Setup
 - Install necessary dependency for the dashboard.
 ```
+cd ui
 npm install
 ```
 
@@ -29,9 +30,24 @@ npm install
 
 ## How to use?
 
+### Using docker image
+```
+docker pull shweshi/consul-power-ui
+docker run -e CONSUL_URL=<CONSUL_BASE_URL> -p 3000:3000 -p 3001:3001 shweshi/consul-power-ui
+```
+
+### Using Docker compose
+```
+docker-compose build --build-arg CONSUL_URL=<CONSUL_BASE_URL>
+docker-compose up
+```
+
+### Running locally
+
 In the project directory, run:
 
 ```
+cd ui
 npm start
 ```
 
@@ -41,31 +57,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-```
-npm run build
-```
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
 The UI needs a proxy server avoid CORS issue with Consul API. So we need to start proxy server.
 Run the proxy server:
 
 ```
 cd proxy
-node app.js
-```
-
-## How to configure the Consul URL
-1. In proxy/app.js update the URL with your consul url.
-```
-app.use('/', createProxyMiddleware("/", {
-  target: "http://localhost:8500",    <------CHANGE URL HERE
-  changeOrigin: true,
-}));
+CONSUL_URL=<CONSUL_BASE_URL> npm run start
 ```
 
 ### Changelog
